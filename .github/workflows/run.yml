@@ -35,6 +35,9 @@ jobs:
         git config --global user.name "${{ vars.NAME }}"
         git add .
         git commit -m "update"
+    - name: Pull remote changes before push
+      run: |
+        git pull --rebase origin main
     - name: Push changes
       uses: ad-m/github-push-action@master
       with:
